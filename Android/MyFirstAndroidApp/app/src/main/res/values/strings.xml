@@ -1,0 +1,15 @@
+<resources>
+    <string name="Left">左</string>
+    <string name="Right">右</string>
+    <string name="On">开</string>
+    <string name="Off">关</string>
+    <string name="outPut">OutPut</string>
+    <string name="switchActivity">Switch</string>
+    <string name="comfirem">Comfirem</string>
+    <string name="input">InputNumber</string>
+    <string name="radiobutton1">RadioButton1</string>
+    <string name="radiobutton2">RadioButton2</string>
+    <string name="YourID">ID</string>
+    <string name="Password">Password</string>
+    <string name="SignUp">Sign Up</string>
+</resources>
