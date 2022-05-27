@@ -1,7 +1,7 @@
 # AndroidSpringBoot
 ### **SpringBoot Connect To MySql**
 
-自动生成表
+#### 自动生成表
 
 @Entity 用Entity修饰实体类并同时根据类中的成员变数生成表与列 表名自动以类名显示
 
@@ -21,12 +21,16 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 ### Android Connect To SpringBoot Use RetrofitLibrary（レトロフィット）
+**実現に必要なClass Or Interface**  
+**DataEntity     Class     (Backend側の@Entityもしくはテーブルを作るためのClass)**  
+**CallBackEndAPI Interface (BackEnd側のControllerクラスの@GetMapping、@PostMappingとかを呼び出すInterface)**  
+**Retrofit       Class     (上記のCallBackEndAPI Interfaceを .create(CallBackEndAPI)でCallBackEndAPIを実現する)**  
 
 封装　カプセル化
 
-dataのcreate update read delete を一つのinterfaceとして定義し、レトロフィットのcreate関数でinterfaceを実装し、interfaceのエンティティが戻り値として、実際の機能を持つようにまりました。このエンティティのエンキュー関数を使ってspringbootのcontrollerの中の関数を呼び出す
+dataのcreate update read delete を一つのinterfaceとして定義し、  レトロフィットのcreate関数でinterfaceを実装し、interfaceのエンティティが戻り値として、実際の機能を持つようにまりました。  このエンティティのエンキュー関数を使ってspringbootのcontrollerの中の関数を呼び出す  
 
-接続方：SpringBootと接続なので、まずアンドロイド側でもSpringBootと同じくデーターエンティティクラスとCURD interfaceを作る、次は**レトロフィット**実体を作成し、ドットCreate関数にCURD interfaceを引数として渡して、interface型のエンティティがreturnされる、このinterface型の**エンティティ**を使って**エンキュー**中のcallback<YourDataEntityType>{}を使ってsuccessful と failure を判断する
+接続方：SpringBootと接続なので、まずアンドロイド側でもSpringBootと同じくデーターエンティティクラスとCURD interfaceを作る、  次は**レトロフィット**実体を作成し、ドットCreate関数にCURD interfaceを引数として渡して、interface型のエンティティがreturnされる、  このinterface型の**エンティティ**を使って**エンキュー**中のcallback<YourDataEntityType>{}を使ってsuccessful と failure を判断する  
 ### JAVA 
 ```java
 public class WeatherRepositoryImplRetrofit2 implements WeatherRepository {
@@ -66,6 +70,8 @@ private interface WeatherService {
 ```
 ### KOTLIN
 ```kotlin
+ 
+~/src/main/java/com/example/myfirstandroidapp/callBackEndAPI/RetrofitEntity.kt
 class RetrofitEntity {
         val retrofit: Retrofit by lazy {
         Retrofit.Builder().apply {
@@ -74,18 +80,21 @@ class RetrofitEntity {
         }.build()
     }
 }
-
+ 
+~/src/main/java/com/example/myfirstandroidapp/callBackEndAPI/CallBackEndAPI.kt
 interface CallBackEndAPI {
     @POST("/DIM/save")
     fun save(@Body dimModel: DIMModel):Call<Void>
 }
 
+~/src/main/java/com/example/myfirstandroidapp/dataEntity/DIMModel.kt
 class DIMModel {
     val id = 0
     var name = ""
     var password = ""
 }
-
+ 
+~/src/main/java/com/example/myfirstandroidapp/viewListener/DAO.kt
 val name = binding.editTextNumber2.text.toString()
 val passWord = binding.editTextTextPassword.text.toString()
 val userMessage = DIMModel()
@@ -107,3 +116,10 @@ callBackEndAPI.save(userMessage)
                    Logger.getLogger(CallBackEndAPI::class.java.name).log(Level.SEVERE,"Error",t)
                }
            })
+ ```
+### 注意
+ 以上仅提供例子
+ 实际code要具体情况具体分析
+ 
+ kotlin例子中由于不需要实际的response（从后段返回的值） 所以callBack<Void(这里填的Void)>
+ 如果需要返回值 则需要填相应的Class
