@@ -26,7 +26,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 dataのcreate update read delete を一つのinterfaceとして定義し、レトロフィットのcreate関数でinterfaceを実装し、interfaceのエンティティが戻り値として、実際の機能を持つようにまりました。このエンティティのエンキュー関数を使ってspringbootのcontrollerの中の関数を呼び出す
 
-接続方：SpringBootと接続なので、まずアンドロイド側でもSpringBootと同じくデーターエンティティクラスとCURD interfaceを作る、次は**レトロフィット**実体を作成し、ドットCreate関数にCURD interfaceを引数として渡して、interface型のエンティティがreturnされる、このinterface型の**エンティティ**を使って**エンキュー**中のcallback
+接続方：SpringBootと接続なので、まずアンドロイド側でもSpringBootと同じくデーターエンティティクラスとCURD interfaceを作る、次は**レトロフィット**実体を作成し、ドットCreate関数にCURD interfaceを引数として渡して、interface型のエンティティがreturnされる、このinterface型の**エンティティ**を使って**エンキュー**中のcallback<YourDataEntityType>{}を使ってsuccessful と failure を判断する
 ### JAVA 
 ```java
 public class WeatherRepositoryImplRetrofit2 implements WeatherRepository {
@@ -61,7 +61,7 @@ public void getWeather(final RequestCallback callback) {
 private interface WeatherService {
     @GET(PATH)
     Call<Weather> getWeather(@Query("city") int city);
-}
+    }
 }
 ```
 ### KOTLIN
@@ -97,12 +97,12 @@ val retrofitEntity = RetrofitEntity()
 val callBackEndAPI = **retrofitEntity.retrofit.create(CallBackEndAPI::class.java)**
 
 callBackEndAPI.save(userMessage)
-              .**enqueue**(object: Callback<**Void**>{
-               override fun onResponse(call: Call<**Void**>, response: Response<**Void**>) {
+              .enqueue(object: Callback<Void>{
+               override fun onResponse(call: Call<Void>, response: Response<**Void**>) {
                    Toast.makeText(activity,"Save Successful!!",Toast.LENGTH_SHORT).show()
                }
 
-               override fun onFailure(call: Call<**Void**>, t: Throwable) {
+               override fun onFailure(call: Call<Void>, t: Throwable) {
                    Toast.makeText(activity,"Save Failed!!",Toast.LENGTH_SHORT).show()
                    Logger.getLogger(CallBackEndAPI::class.java.name).log(Level.SEVERE,"Error",t)
                }
