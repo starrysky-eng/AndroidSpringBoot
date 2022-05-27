@@ -1,17 +1,22 @@
-package com.example.myfirstandroidapp
+package com.example.myfirstandroidapp.viewListener
 
 import android.text.TextUtils
 import android.widget.CompoundButton
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.myfirstandroidapp.*
+import com.example.myfirstandroidapp.callBackEndAPI.CallBackEndAPI
+import com.example.myfirstandroidapp.callBackEndAPI.RetrofitEntity
+import com.example.myfirstandroidapp.dataEntity.DIMModel
+import com.example.myfirstandroidapp.viewModel.MyViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.logging.Level
 import java.util.logging.Logger
 
-open class DAO(private val activity: MainActivity) {
+class DAO(private val activity: MainActivity) {
     val myViewModel = ViewModelProvider(activity).get(MyViewModel::class.java)
     private val binding = activity.getBinding()
 

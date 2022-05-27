@@ -6,7 +6,7 @@
     <data>
         <variable
             name="dao"
-            type="com.example.myfirstandroidapp.DAO" />
+            type="com.example.myfirstandroidapp.viewListener.DAO" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

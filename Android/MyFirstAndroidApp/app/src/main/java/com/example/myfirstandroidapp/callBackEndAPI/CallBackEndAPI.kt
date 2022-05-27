@@ -1,5 +1,6 @@
-package com.example.myfirstandroidapp
+package com.example.myfirstandroidapp.callBackEndAPI
 
+import com.example.myfirstandroidapp.dataEntity.DIMModel
 import retrofit2.http.POST
 import retrofit2.Call
 import retrofit2.http.Body

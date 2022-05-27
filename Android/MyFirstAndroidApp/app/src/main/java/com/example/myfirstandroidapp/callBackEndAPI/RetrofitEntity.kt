@@ -1,4 +1,4 @@
-package com.example.myfirstandroidapp
+package com.example.myfirstandroidapp.callBackEndAPI
 
 import com.google.gson.Gson
 import retrofit2.Retrofit
@@ -12,9 +12,4 @@ class RetrofitEntity {
             addConverterFactory(GsonConverterFactory.create(Gson()))
         }.build()
     }
-
-//    val retrofit: Retrofit = Retrofit.Builder()
-//        .baseUrl("http://192.168.2.101:8090")
-//        .addConverterFactory(GsonConverterFactory.create(Gson()))
-//        .build()
 }
