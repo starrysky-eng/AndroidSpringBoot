@@ -21,10 +21,10 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 ### Android Connect To SpringBoot Use RetrofitLibrary（レトロフィット）
-**実現に必要なClass Or Interface**  
-**DataEntity     Class     (Backend側の@Entityもしくはテーブルを作るためのClass)**  
-**CallBackEndAPI Interface (BackEnd側のControllerクラスの@GetMapping、@PostMappingとかを呼び出すInterface)**  
-**Retrofit       Class     (上記のCallBackEndAPI Interfaceを .create(CallBackEndAPI)でCallBackEndAPIを実現する)**  
+#### 実現に必要なClass Or Interface**  
+**1 DataEntity     Class     (Backend側の@Entityもしくはテーブルを作るためのClass)**  
+**2 CallBackEndAPI Interface (BackEnd側のControllerクラスの@GetMapping、@PostMappingとかを呼び出すInterface)**  
+**3 Retrofit       Class     (上記のCallBackEndAPI Interfaceを .create(CallBackEndAPI)でCallBackEndAPIを実現する)**  
 
 封装　カプセル化
 
