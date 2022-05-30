@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/AndroidSpringBoot/Android/MyFirstAndroidApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Android/AndroidSpringBoot/Android/MyFirstAndroidApp/app/src/main/res/layout/fragment_blank.xml" value="0.264" />
+        <entry key="..\:/Android/AndroidSpringBoot/Android/MyFirstAndroidApp/app/src/main/res/layout/fragment_home_page.xml" value="0.2" />
+        <entry key="..\:/Android/AndroidSpringBoot/Android/MyFirstAndroidApp/app/src/main/res/layout/fragment_home_page2.xml" value="0.11676798378926039" />
+        <entry key="..\:/Android/AndroidSpringBoot/Android/MyFirstAndroidApp/app/src/main/res/layout/fragment_my_page.xml" value="0.24010416666666667" />
         <entry key="..\:/AndroidSpringBoot/AndroidSpringBoot/Android/MyFirstAndroidApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidSpringboot/Android/MyFirstAndroidApp/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/dbserver/AndroidStudioProjects/MyFirstAndroidApp/app/src/main/res/layout/activity_main.xml" value="0.33" />

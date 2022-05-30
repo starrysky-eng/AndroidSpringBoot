@@ -4,11 +4,12 @@ import android.text.TextUtils
 import android.widget.CompoundButton
 import android.widget.SeekBar
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import com.example.myfirstandroidapp.*
+import androidx.fragment.app.FragmentActivity
+import androidx.navigation.Navigation
 import com.example.myfirstandroidapp.callBackEndAPI.CallBackEndAPI
 import com.example.myfirstandroidapp.callBackEndAPI.RetrofitEntity
 import com.example.myfirstandroidapp.dataEntity.DIMModel
+import com.example.myfirstandroidapp.databinding.FragmentHomePageBinding
 import com.example.myfirstandroidapp.viewModel.MyViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,9 +17,10 @@ import retrofit2.Response
 import java.util.logging.Level
 import java.util.logging.Logger
 
-class DAO(private val activity: MainActivity) {
-    val myViewModel = ViewModelProvider(activity).get(MyViewModel::class.java)
-    private val binding = activity.getBinding()
+class DAO(fragmentBinding: FragmentHomePageBinding, val myViewModel: MyViewModel, private val activity: FragmentActivity?) {
+    private val binding = fragmentBinding
+    private val retrofitEntity = RetrofitEntity()
+    private val callBackEndAPI: CallBackEndAPI = retrofitEntity.retrofit.create(CallBackEndAPI::class.java)
 
     fun onCheckChange(compoundButton: CompoundButton, checked: Boolean) {
         if (checked) {
@@ -58,9 +60,6 @@ class DAO(private val activity: MainActivity) {
 
         userMessage.name = name
         userMessage.password = passWord
-
-        val retrofitEntity = RetrofitEntity()
-        val callBackEndAPI = retrofitEntity.retrofit.create(CallBackEndAPI::class.java)
 
         callBackEndAPI.save(userMessage)
             .enqueue(object: Callback<Void>{

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitEntity {
         val retrofit: Retrofit by lazy {
         Retrofit.Builder().apply {
-            baseUrl("http://192.168.2.101:8090")
+            baseUrl("https://vn9x0dkce8.execute-api.ap-northeast-1.amazonaws.com")
             addConverterFactory(GsonConverterFactory.create(Gson()))
         }.build()
     }
