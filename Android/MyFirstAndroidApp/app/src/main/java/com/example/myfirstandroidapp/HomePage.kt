@@ -14,15 +14,10 @@ import com.example.myfirstandroidapp.viewModel.MyViewModel
 class HomePage : Fragment() {
     private lateinit var binding: FragmentHomePageBinding
     private val myViewModel: MyViewModel by activityViewModels()
-//    private val myActivity by lazy {
-//        activity
-//    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_home_page, container, false)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_page, container, false)
         return binding.root
     }

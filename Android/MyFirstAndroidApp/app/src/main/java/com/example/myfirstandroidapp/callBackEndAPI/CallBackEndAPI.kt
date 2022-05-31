@@ -6,7 +6,6 @@ import retrofit2.Call
 import retrofit2.http.Body
 
 interface CallBackEndAPI {
-    @POST("/dev")
+    @POST("/DIM/save")
     fun save(@Body dimModel: DIMModel):Call<Void>
-
 }
